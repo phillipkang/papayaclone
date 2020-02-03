@@ -39,6 +39,7 @@ import com.android.volley.toolbox.Volley
 import com.google.common.util.concurrent.ListenableFuture
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_pay_bill.*
+import java.io.File
 import java.util.concurrent.Executors
 import java.util.concurrent.TimeUnit
 
@@ -76,6 +77,18 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    companion object {
+
+        /** Use external media if it is available, our app's file directory otherwise */
+        fun getOutputDirectory(context: Context): File {
+            val appContext = context.applicationContext
+            val mediaDir = context.externalMediaDirs.firstOrNull()?.let {
+                File(it, appContext.resources.getString(R.string.app_name)).apply { mkdirs() } }
+            return if (mediaDir != null && mediaDir.exists())
+                mediaDir else appContext.filesDir
+        }
     }
 
 
