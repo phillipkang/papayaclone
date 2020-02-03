@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_pay_bill">
+
+    <fragment
+        android:id="@+id/nav_pay_bill"
+        android:name="com.example.papayaclone.ui.pay_bill.PayBillFragment"
+        android:label="@string/menu_pay_bill"
+        tools:layout="@layout/fragment_pay_bill" />
+
+    <fragment
+        android:id="@+id/nav_bill_history"
+        android:name="com.example.papayaclone.ui.bill_history.BillHistoryFragment"
+        android:label="@string/menu_bill_history"
+        tools:layout="@layout/fragment_bill_history" />
+
+    <fragment
+        android:id="@+id/nav_payment_methods"
+        android:name="com.example.papayaclone.ui.payment_methods.PaymentMethodsFragment"
+        android:label="@string/menu_payment_methods"
+        tools:layout="@layout/fragment_payment_methods" />
+
+    <fragment
+        android:id="@+id/nav_notifications"
+        android:name="com.example.papayaclone.ui.notifications.NotificationsFragment"
+        android:label="@string/menu_notifications"
+        tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/nav_help"
+        android:name="com.example.papayaclone.ui.help.HelpFragment"
+        android:label="@string/menu_help"
+        tools:layout="@layout/fragment_help" />
+
+</navigation>
